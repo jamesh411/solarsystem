@@ -41,8 +41,14 @@ class Planet {
     //planet
     fill(76, 74, 102);
     stroke(255);
-    x = 400 + (cos(angle) * orbitalRadius);
-    y = 400 + (sin(angle) * orbitalRadius);
+    if ((name == "venus") || name == ("uranus")) {
+      x = 400 + (sin(angle + PI/2) * orbitalRadius);
+      y = 400 + (cos(angle + PI/2) * orbitalRadius);
+    }
+    else {
+      x = 400 + (cos(angle) * orbitalRadius);
+      y = 400 + (sin(angle) * orbitalRadius);
+    }
     ellipse(x, y, planetDiameter, planetDiameter);
     angle = angle + angularVelocity;
   }
